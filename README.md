@@ -23,7 +23,7 @@ Este projeto é baseado no desafio de projeto [Santander Bootcamp 2023 - Ciênci
 
 Biblioteca Panda lê arquivo .csv e transforma em data frame.
 
-```
+```python
 import pandas as pd
 
 df = pd.read_csv('SDW2023.csv')
@@ -38,7 +38,7 @@ Vamos criar uma função' que receba a response da API e busque os usuários.
 > Obs: A URL da API pra retornar o usuario 4520 é `https://sdw-2023-prd.up.railway.app/users/4520`. 
 >> sdw2023_api_url = `https://sdw-2023-prd.up.railway.app`
 
-``` 
+```python
 import requests
 import json
 
@@ -64,13 +64,13 @@ Instalando a OpenAI
 
 É preciso criar uma conta na OpenAI e inserir sua API Key da OpenAI.
 
-```
+```python
 openai_api_key = 'jambalaia'
 ```
 
 Importanto a API e gerando as mensagens, baseado na documentação [Create chat completion](https://platform.openai.com/docs/api-reference/chat/create):
 
-```
+```python
 import openai
 
 openai.api_key = openai_api_key  # insere chave unica
@@ -105,7 +105,7 @@ for user in users:
 
 > Objetivo: Atualizar a lista de "news" de cada usuário de volta para a API da santander Dev Week com a nova mensagem gerada.
 
-```
+```python
 def update_user(user):                                                           # criando uma funcão que atualiza o a API com PUT 
   response = requests.put(f"{sdw2023_api_url}/users/{user['id']}", json=user)    # json=user estabelece o body em formato json
   return True if response.status_code == 200 else False                       
